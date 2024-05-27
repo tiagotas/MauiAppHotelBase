@@ -12,12 +12,10 @@ public partial class HospedagemCalculada : ContentPage
         try
         {
             Navigation.PopAsync();
-
         }
         catch (Exception ex)
         {
             DisplayAlert("Ops", ex.Message, "OK");
         }
-
     }
 }

@@ -2,13 +2,13 @@
 {
     public class Hospedagem
     {
-        Quarto suite;
+        Quarto? suite;
 
         public int QntAdultos { get; set; }
         public int QntCriancas { get; set; }
         public DateTime DataCheckIn { get; set; }
         public DateTime DataCheckOut { get; set; }
-        public Quarto Suite
+        public Quarto? Suite
         {
             get => suite;
 

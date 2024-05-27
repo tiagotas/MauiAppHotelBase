@@ -2,25 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
-             Title="ContratacaoHospedagem">
-    <VerticalStackLayout>
-        <Label Text="Cálculo da Diária"
-                   VerticalOptions="Center"
-                    />
+             Title="ContratacaoHospedagem"
+             BackgroundColor="{StaticResource Gray100}"
+             NavigationPage.HasNavigationBar="False">
 
-        <Frame Padding="5">
-            <StackLayout>
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+        
+        <Label Text="Cálculo da Diária" 
+               FontFamily="Kalam"
+               FontSize="50"
+               TextColor="{StaticResource Primary}"
+               VerticalOptions="Center" />
+        
+        <Frame Padding="10">
+            <VerticalStackLayout>
 
                 <Grid RowDefinitions="Auto, Auto"
                           ColumnDefinitions="*, *, 2*">
 
                     <Label Grid.Row="0" Grid.Column="0" 
-                               Text="Adultos:" />
+                           Text="Adultos:" />
 
                     <Label Grid.Row="0" Grid.Column="1" 
                                Text="{Binding Value}"
                                BindingContext="{x:Reference stp_adultos}"
-                               TextColor="DarkRed"
+                               TextColor="{StaticResource Primary}"
                                FontAttributes="Bold"/>
 
                     <Stepper Grid.Row="0" Grid.Column="2"
@@ -35,7 +42,7 @@
                     <Label Grid.Row="1" Grid.Column="1"
                                BindingContext="{x:Reference stp_criancas}"
                                Text="{Binding Value}"
-                               TextColor="DarkRed"
+                               TextColor="{ StaticResource Primary}"
                                FontAttributes="Bold"/>
 
                     <Stepper Grid.Row="1" Grid.Column="2"
@@ -50,6 +57,7 @@
                            FontAttributes="Bold"
                            TextTransform="Uppercase"
                            FontSize="Small"
+                           HorizontalTextAlignment="Center"
                            Margin="0, 10, 0, 0"/>
 
                 <Picker x:Name="pck_quarto"
@@ -67,25 +75,23 @@
                                    TextTransform="Uppercase"
                                    FontSize="Small" />
 
-                        <StackLayout Orientation="Horizontal">
+                        <HorizontalStackLayout>
                             <Label Text="Check-in:" />
                             <DatePicker x:Name="dtpck_checkin" 
                                             Format="dd/MM/yyyy"
                                             DateSelected="dtpck_checkin_DateSelected"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
                             <Label Text="Check-out:" />
                             <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy" />
-                        </StackLayout>
+                        </HorizontalStackLayout>
 
                     </StackLayout>
                 </Frame>
 
                 <Button Text="Avançar" Clicked="Button_Clicked" Margin="10" />
 
-
-
-            </StackLayout>
+            </VerticalStackLayout>
         </Frame>
     </VerticalStackLayout>
 </ContentPage>
